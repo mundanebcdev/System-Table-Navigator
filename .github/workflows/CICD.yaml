@@ -24,7 +24,7 @@ env:
 
 jobs:
   Initialization:
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     outputs:
       telemetryScopeJson: ${{ steps.init.outputs.telemetryScopeJson }}
       environmentsMatrixJson: ${{ steps.DetermineDeploymentEnvironments.outputs.EnvironmentsMatrixJson }}
@@ -106,7 +106,7 @@ jobs:
           type: 'CD'
 
   CheckForUpdates:
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     needs: [ Initialization ]
     steps:
       - name: Checkout
@@ -204,7 +204,7 @@ jobs:
       matrix:
         deliveryTarget: ${{ fromJson(needs.Initialization.outputs.deliveryTargetsJson) }}
       fail-fast: false
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     name: Deliver to ${{ matrix.deliveryTarget }}
     steps:
       - name: Checkout
@@ -241,7 +241,7 @@ jobs:
 
   PostProcess:
     if: (!cancelled())
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     needs: [ Initialization, Build, Deploy, Deliver ]
     steps:
       - name: Checkout
