@@ -56,7 +56,7 @@ env:
 
 jobs:
   CreateRelease:
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     outputs:
       telemetryScopeJson: ${{ steps.init.outputs.telemetryScopeJson }}
       artifacts: ${{ steps.analyzeartifacts.outputs.artifacts }}
@@ -206,7 +206,7 @@ jobs:
             core.setOutput('releaseId', releaseId);
 
   UploadArtifacts:
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     needs: [ CreateRelease ]
     strategy:
       matrix: ${{ fromJson(needs.CreateRelease.outputs.artifacts) }}
@@ -286,7 +286,7 @@ jobs:
 
   CreateReleaseBranch:
     if: ${{ github.event.inputs.createReleaseBranch=='Y' }}
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     needs: [ CreateRelease, UploadArtifacts ]
     steps:
       - name: Checkout
@@ -305,7 +305,7 @@ jobs:
 
   UpdateVersionNumber:
     if: ${{ github.event.inputs.updateVersionNumber!='' }}
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     needs: [ CreateRelease, UploadArtifacts ]
     steps:
       - name: Read settings
@@ -333,7 +333,7 @@ jobs:
 
   PostProcess:
     if: always()
-    runs-on: [ windows-latest ]
+    runs-on: [ self-hosted ]
     needs: [ CreateRelease, UploadArtifacts, CreateReleaseBranch, UpdateVersionNumber ]
     steps:
       - name: Checkout
