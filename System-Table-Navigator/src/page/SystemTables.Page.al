@@ -78,7 +78,7 @@ page 88000 "System Tables"
                 ApplicationArea = All;
                 Caption = 'Open Table';
                 Image = Open;
-                // Enabled = Rec."Direct Table Access";
+                Enabled = Rec."Object ID" <> 0;
                 trigger OnAction()
                 begin
                     Hyperlink(GetUrl(ClientType::Current, CompanyName, ObjectType::Table, Rec."Object ID"));
@@ -89,7 +89,7 @@ page 88000 "System Tables"
                 ApplicationArea = All;
                 Caption = 'Open Page';
                 Image = Open;
-                // Enabled = Rec."Page Id" <> 0;
+                Enabled = Rec."Page Id" <> 0;
                 trigger OnAction()
                 begin
                     Page.Run(Rec."Page Id");
@@ -100,7 +100,7 @@ page 88000 "System Tables"
                 ApplicationArea = All;
                 Caption = 'Open Blog';
                 Image = Open;
-                // Enabled = Rec."Blog links" <> '';
+                Enabled = Rec."Blog links" <> '';
                 trigger OnAction()
                 begin
                     Hyperlink(Rec."Blog links");

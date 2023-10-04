@@ -97,6 +97,16 @@ table 88000 "System Tables"
 
         Clear(SystemTables);
         SystemTables.Init();
+        SystemTables."Object ID" := 0;
+        SystemTables.Description := 'Search across all data defined in the setup';
+        SystemTables."Direct Table Access" := false;
+        SystemTables."MS page" := false;
+        SystemTables."Page Id" := 2680;
+        SystemTables."Table Caption" := GetPageCaptionAsText(2680);
+        SystemTables.Insert();
+
+        Clear(SystemTables);
+        SystemTables.Init();
         SystemTables."Object ID" := Database::"Table Information";
         SystemTables.Description := 'Information about the number of records in all system and business tables';
         SystemTables."Direct Table Access" := false;
@@ -104,7 +114,6 @@ table 88000 "System Tables"
         SystemTables."Page Id" := Page::"Table Information";
         SystemTables."Table Caption" := GetPageCaptionAsText(Page::"Table Information");
         SystemTables.Insert();
-
 
         #endregion    
 
@@ -398,18 +407,29 @@ table 88000 "System Tables"
 
         Clear(SystemTables);
         SystemTables.Init();
-        SystemTables."Object ID" := Database::"Scheduled Task";
-        SystemTables.Description := '';
+        SystemTables."Object ID" := 0;
+        SystemTables.Description := 'Capture a user flow from within the web client and view high-level information about time spent in the web client itself';
         SystemTables."Direct Table Access" := false;
-        SystemTables."MS page" := false;
-        SystemTables."Page Id" := Page::"Scheduled Tasks";
-        SystemTables."Table Caption" := GetTableCaptionAsText(SystemTables."Object ID");
+        SystemTables."MS page" := true;
+        SystemTables."Page Id" := Page::"Performance Profiler";
+        SystemTables."Blog links" := 'https://demiliani.com/2022/03/22/dynamics-365-business-central-introducing-the-in-client-performance-profiler/';
+        SystemTables."Table Caption" := GetPageCaptionAsText(Page::"Performance Profiler");
+        SystemTables.Insert();
+
+        Clear(SystemTables);
+        SystemTables.Init();
+        SystemTables."Object ID" := 0;
+        SystemTables.Description := 'Last known error that occurred in the session';
+        SystemTables."Direct Table Access" := false;
+        SystemTables."MS page" := true;
+        SystemTables."Page Id" := Page::"Latest Error";
+        SystemTables."Table Caption" := GetPageCaptionAsText(Page::"Latest Error");
         SystemTables.Insert();
 
         Clear(SystemTables);
         SystemTables.Init();
         SystemTables."Object ID" := Database::"Event Subscription";
-        SystemTables.Description := '';
+        SystemTables.Description := 'Check who subscribed where';
         SystemTables."Direct Table Access" := false;
         SystemTables."MS page" := false;
         SystemTables."Page Id" := Page::"Event Subscriptions";
@@ -418,12 +438,26 @@ table 88000 "System Tables"
 
         Clear(SystemTables);
         SystemTables.Init();
+        SystemTables."Object ID" := Database::"Scheduled Task";
+        SystemTables.Description := 'Currently scheduled tasks';
+        SystemTables."Direct Table Access" := false;
+        SystemTables."MS page" := true;
+        SystemTables."Page Id" := Page::"Scheduled Tasks";
+        SystemTables."Blog links" := 'https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-task-scheduler';
+        SystemTables."Table Caption" := GetTableCaptionAsText(SystemTables."Object ID");
+        SystemTables.Insert();
+
+
+
+        Clear(SystemTables);
+        SystemTables.Init();
         SystemTables."Object ID" := Database::"Recorded Event Buffer";
-        SystemTables.Description := '';
+        SystemTables.Description := 'Tool to record events';
         SystemTables."Direct Table Access" := false;
         SystemTables."MS page" := false;
         SystemTables."Page Id" := Page::"Event Recorder";
         SystemTables."Table Caption" := GetPageCaptionAsText(Page::"Event Recorder");
+        SystemTables."Blog links" := 'https://demiliani.com/2018/09/11/dynamics-365-business-central-using-the-event-recorder-for-developing/';
         SystemTables.Insert();
 
         Clear(SystemTables);
@@ -449,10 +483,11 @@ table 88000 "System Tables"
         Clear(SystemTables);
         SystemTables.Init();
         SystemTables."Object ID" := Database::"Database Locks";
-        SystemTables.Description := '';
+        SystemTables.Description := 'Snapshot of all current database locks';
         SystemTables."Direct Table Access" := false;
         SystemTables."MS page" := false;
         SystemTables."Page Id" := 0;
+        SystemTables."Blog links" := 'https://learn.microsoft.com/en-us/dynamics365/business-central/admin-view-database-locks';
         SystemTables."Table Caption" := GetTableCaptionAsText(SystemTables."Object ID");
         SystemTables.Insert();
 
@@ -463,6 +498,7 @@ table 88000 "System Tables"
         SystemTables."Direct Table Access" := false;
         SystemTables."MS page" := false;
         SystemTables."Page Id" := Page::"Database Wait Statistics";
+        SystemTables."Blog links" := 'https://www.linkedin.com/pulse/analyzing-database-performance-issues-dynamics-365-wait-pontoppidan';
         SystemTables."Table Caption" := GetTableCaptionAsText(SystemTables."Object ID");
         SystemTables.Insert();
 
