@@ -1,5 +1,20 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "UA",
+            "request": "launch",
+            "tenant": "d01faa74-04b0-4163-a1fd-6f4cca10e2b0",
+            "environmentName": "UA",
+            "type": "al",
+            "startupObjectId": 50101,
+            "startupObjectType": "Page",
+            "breakOnError": true,
+            "launchBrowser": false,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "ForceSync",
+            "dependencyPublishingOption": "Ignore"
+        }
     ]
 }

@@ -1,5 +1,5 @@
 {
-  "id": "d9b1fdba-93f0-41ae-bcc8-00d1ee3a2ba1",
+  "id": "a970ab87-6ec6-424b-b284-05dbdf406a8d",
   "name": "System-Table-Navigator",
   "publisher": "mundanebcdev",
   "version": "1.0.0.0",
@@ -7,25 +7,27 @@
   "description": "",
   "privacyStatement": "",
   "EULA": "",
-  "help": "",
+  "help": "https://github.com/mundanebcdev",
   "url": "",
   "logo": "",
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "22.0.0.0",
+  "application": "21.0.0.0",
   "idRanges": [
     {
-      "from": 50000,
+      "from": 50100,
       "to": 99999
     }
   ],
-  "features": [
-    "NoImplicitWith"
-  ],
   "resourceExposurePolicy": {
     "allowDebugging": true,
-    "allowDownloadingSource": false,
-    "includeSourceInSymbolFile": false
-  }
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "11.0",
+  "suppressWarnings": ["AA0218","AA0217"],
+  "features": [
+    "NoImplicitWith"
+  ]
 }
